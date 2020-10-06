@@ -1,0 +1,23 @@
+$light-color: #fff;
+$font-stack:Arial,Helvetica,sans-serif;
+//$primary-color:#fff;
+$primary-color:rgb(120, 120, 207);
+$secondary-color:#ff8700;
+
+
+//set Text Color based on back ground color using function
+
+@function set-text-color($color) {
+    @if(lightness($color) > 70) {
+        @return  #333;
+    } @else {
+      @return #fff;
+    }
+}
+
+//set background colour using mixin
+
+@mixin set-background-mixin($color) {
+  background-color:$color ;
+  color: set-text-color($color);
+}
